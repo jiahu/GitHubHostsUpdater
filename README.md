@@ -25,7 +25,7 @@ Automatically update your Windows hosts file with [GitHub520](https://github.com
    ```powershell
    # Example: save to your user scripts folder
    mkdir "$env:USERPROFILE\Scripts" -ErrorAction SilentlyContinue
-   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/jiahu/GitHubHostsUpdater/main/src/update-github-hosts.ps1" -OutFile "$env:USERPROFILE\Scripts\update-github-hosts.ps1"
+   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/jiahu/GitHubHostsUpdater/main/update-github-hosts.ps1" -OutFile "$env:USERPROFILE\Scripts\update-github-hosts.ps1"
    ```
 
    Or clone this repository:
@@ -106,7 +106,7 @@ Use Windows Task Scheduler to run the script daily at 3:47 AM:
 Save this as `setup-task.ps1` and run it as administrator:
 
 ```powershell
-$scriptPath = "D:\Tools\GitHubHosts\src\update-github-hosts.ps1"
+$scriptPath = "D:\Tools\GitHubHosts\update-github-hosts.ps1"
 
 $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-ExecutionPolicy Bypass -WindowStyle Hidden -File `"$scriptPath`""
 
@@ -133,7 +133,7 @@ Register-ScheduledTask -TaskName "GitHub Hosts Updater" -Action $action -Trigger
    - Click "New"
    - Action: Start a program
    - Program/script: `powershell.exe`
-   - Add arguments: `-ExecutionPolicy Bypass -WindowStyle Hidden -File "D:\Tools\GitHubHosts\src\update-github-hosts.ps1"`
+   - Add arguments: `-ExecutionPolicy Bypass -WindowStyle Hidden -File "D:\Tools\GitHubHosts\update-github-hosts.ps1"`
 6. **Conditions tab**:
    - Uncheck "Start the task only if the computer is on AC power" (optional)
 7. Click "OK"

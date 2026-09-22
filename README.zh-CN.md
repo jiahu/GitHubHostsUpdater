@@ -25,7 +25,7 @@
    ```powershell
    # 示例：保存到用户脚本文件夹
    mkdir "$env:USERPROFILE\Scripts" -ErrorAction SilentlyContinue
-   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/jiahu/GitHubHostsUpdater/main/src/update-github-hosts.ps1" -OutFile "$env:USERPROFILE\Scripts\update-github-hosts.ps1"
+   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/jiahu/GitHubHostsUpdater/main/update-github-hosts.ps1" -OutFile "$env:USERPROFILE\Scripts\update-github-hosts.ps1"
    ```
 
    或者克隆本仓库：
@@ -106,7 +106,7 @@ ipconfig /flushdns
 将以下内容保存为 `setup-task.ps1` 并以管理员身份运行：
 
 ```powershell
-$scriptPath = "D:\Tools\GitHubHosts\src\update-github-hosts.ps1"
+$scriptPath = "D:\Tools\GitHubHosts\update-github-hosts.ps1"
 
 $action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-ExecutionPolicy Bypass -WindowStyle Hidden -File `"$scriptPath`""
 
@@ -133,7 +133,7 @@ Register-ScheduledTask -TaskName "GitHub Hosts 更新工具" -Action $action -Tr
    - 点击"新建"
    - 操作：启动程序
    - 程序或脚本：`powershell.exe`
-   - 添加参数：`-ExecutionPolicy Bypass -WindowStyle Hidden -File "D:\Tools\GitHubHosts\src\update-github-hosts.ps1"`
+   - 添加参数：`-ExecutionPolicy Bypass -WindowStyle Hidden -File "D:\Tools\GitHubHosts\update-github-hosts.ps1"`
 6. **条件选项卡**：
    - 取消勾选"只有在计算机使用交流电源时才启动任务"（可选）
 7. 点击"确定"
